@@ -106,7 +106,7 @@ function SimPreview() {
 }
 
 /* ─── Home Page ──────────────────────────────────────────────── */
-export default function Home() {
+export default function Home({ onLoginClick }) {
   const revealRefs = useRef([]);
 
   /* Scroll-reveal observer */
@@ -202,7 +202,7 @@ export default function Home() {
 
         <div className="hero-actions">
           <button className="btn-primary">Start Simulation →</button>
-          <button className="btn-secondary">View Methodology</button>
+          <button className="btn-secondary" onClick={onLoginClick}>Login →</button>
         </div>
 
         <div className="stats-strip">
