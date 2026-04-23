@@ -106,7 +106,7 @@ function SimPreview() {
 }
 
 /* ─── Home Page ──────────────────────────────────────────────── */
-export default function Home({ onLoginClick }) {
+export default function Home({ onLoginClick, onSimulateClick }) {
   const revealRefs = useRef([]);
 
   /* Scroll-reveal observer */
@@ -178,7 +178,7 @@ export default function Home({ onLoginClick }) {
           <li><a href="#scenarios">Scenarios</a></li>
           <li><a href="#about">About</a></li>
         </ul>
-        <button className="nav-cta">Launch Simulation</button>
+        <button className="nav-cta" onClick={onSimulateClick}>Launch Simulation</button>
       </nav>
 
       {/* ── Hero ── */}
@@ -201,7 +201,7 @@ export default function Home({ onLoginClick }) {
         </p>
 
         <div className="hero-actions">
-          <button className="btn-primary">Start Simulation →</button>
+          <button className="btn-primary" onClick={onSimulateClick}>Start Simulation →</button>
           <button className="btn-secondary" onClick={onLoginClick}>Login →</button>
         </div>
 
@@ -308,7 +308,7 @@ export default function Home({ onLoginClick }) {
           and walk away with the risk awareness to survive the real thing.
         </p>
         <div className="reveal" ref={addRef}>
-          <button className="btn-primary" style={{ fontSize: "0.8rem", padding: "18px 48px" }}>
+          <button className="btn-primary" onClick={onSimulateClick} style={{ fontSize: "0.8rem", padding: "18px 48px" }}>
             Launch Your First Simulation →
           </button>
         </div>

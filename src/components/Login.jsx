@@ -9,7 +9,7 @@ const SCENARIOS = [
   "🚫  Product-Market Fit Miss · Queued",
 ];
 
-export default function Login({ onBack }) {
+export default function Login({ onBack, onForgot, onRegister, onSuccess }) {
   const [phase, setPhase]     = useState("idle"); // idle | loading | success
   const [form, setForm]       = useState({ email: "", password: "" });
   const [focused, setFocused] = useState(null);
@@ -29,6 +29,7 @@ export default function Login({ onBack }) {
     if (!form.email || !form.password) return;
     setPhase("loading");
     setTimeout(() => setPhase("success"), 1800);
+    setTimeout(() => onSuccess && onSuccess(), 3000);
   };
 
   return (
@@ -153,7 +154,7 @@ export default function Login({ onBack }) {
                   <input type="checkbox" />
                   Remember me
                 </label>
-                <span className="login-forgot">Forgot password?</span>
+                <span className="login-forgot" onClick={onForgot}>Forgot password?</span>
               </div>
 
               {/* Submit */}
@@ -190,7 +191,7 @@ export default function Login({ onBack }) {
               {/* Sign up */}
               <p className="login-signup">
                 No account?{" "}
-                <span className="login-signup-link">Create one free</span>
+                <span className="login-signup-link" onClick={onRegister}>Create one free</span>
               </p>
             </>
           ) : (
